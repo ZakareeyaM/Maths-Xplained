@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maths Xplained — Loven Moodley</title>
+  <meta name="description" content="Expert maths tuition for Grade 8–12 learners in KwaZulu-Natal. CAPS aligned. Personal sessions with Loven Moodley." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Mobile nav open/close styles injected here so JS can toggle -->
+  <style>
+    #nav-links-list.mobile-open {
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      top: 66px; left: 0; right: 0;
+      background: rgba(7,9,15,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 16px 5% 24px;
+      gap: 4px;
+      z-index: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo" aria-label="Maths Xplained home">
+      <div class="nav-logo-mark" aria-hidden="true">∑</div>
+      Maths<span>Xplained</span>
+    </a>
+
+    <ul id="nav-links-list" class="nav-links">
+      <li><a href="#grades">Grades</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#tutor">Your Tutor</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+
+    <button
+      class="nav-hamburger"
+      id="nav-hamburger"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="nav-links-list"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+
+  <!-- ══ HERO ══ -->
+  <section id="hero" aria-label="Hero">
+
+    <!-- Video background -->
+    <div class="hero-video-wrap" aria-hidden="true">
+      <video
+        id="hero-video"
+        autoplay loop muted playsinline
+        poster=""
+        aria-hidden="true"
+      >
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Floating glyphs -->
+    <span class="math-float" style="top:22%;left:3%;font-size:30px;animation-delay:0s;"   aria-hidden="true">∫</span>
+    <span class="math-float" style="top:14%;right:4%;font-size:20px;animation-delay:2.2s;" aria-hidden="true">π</span>
+    <span class="math-float" style="top:60%;left:2%;font-size:22px;animation-delay:4s;"   aria-hidden="true">Σ</span>
+    <span class="math-float" style="top:72%;right:3%;font-size:26px;animation-delay:1.4s;" aria-hidden="true">√</span>
+    <span class="math-float" style="top:38%;right:1.5%;font-size:15px;animation-delay:3s;" aria-hidden="true">x²</span>
+    <span class="math-float" style="top:82%;left:6%;font-size:18px;animation-delay:5s;"   aria-hidden="true">∞</span>
+
+    <!-- Two-panel layout -->
+    <div class="hero-panels">
+
+      <!-- LEFT PANEL -->
+      <div class="hero-left glass-strong" style="border-radius:28px;">
+
+        <!-- Brand row -->
+        <div class="hero-nav">
+          <div class="hero-brand">
+            <div class="hero-brand-mark" aria-hidden="true">∑</div>
+            Maths<em style="color:inherit;font-style:italic;">Xplained</em>
+          </div>
+          <div class="hero-menu-btn glass" style="border-radius:50px;">
+            Grades 8–12
+          </div>
+        </div>
+
+        <!-- Hero copy -->
+        <div class="hero-center">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span class="eyebrow-text">CAPS Aligned · KwaZulu-Natal</span>
+          </div>
+
+          <h1 class="hero-h1">
+            Maths that<br/>
+            <em>finally</em><br/>
+            <span class="h1-gold">makes sense.</span>
+          </h1>
+
+          <p class="hero-sub">
+            One-on-one tuition for Grade 8 to 12 learners. Build genuine understanding — the kind that holds up in exams and beyond.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Start Learning Today</a>
+            <a href="#grades" class="btn-ghost">Explore Grades →</a>
+          </div>
+
+          <div class="tag-pills">
+            <span class="tag-pill glass" style="border-radius:50px;">Grade 8–12</span>
+            <span class="tag-pill glass" style="border-radius:50px;">CAPS Curriculum</span>
+            <span class="tag-pill glass" style="border-radius:50px;">1-on-1 Sessions</span>
+          </div>
+        </div>
+
+        <!-- Bottom quote -->
+        <div class="hero-quote">
+          <div class="quote-label">Teaching Philosophy</div>
+          <p class="quote-text">
+            "Every learner can improve with the right guidance — no exceptions."
+          </p>
+          <div class="quote-author">
+            <span class="quote-line" aria-hidden="true"></span>
+            Loven Moodley
+            <span class="quote-line" aria-hidden="true"></span>
+          </div>
+        </div>
+
+      </div><!-- /hero-left -->
+
+      <!-- RIGHT PANEL (desktop) -->
+      <div class="hero-right" aria-hidden="true">
+
+        <!-- Topbar -->
+        <div class="right-topbar glass" style="border-radius:18px;">
+          <a href="mailto:loven@pomsun.co.za" class="social-icon" title="Email" aria-label="Email Loven">✉</a>
+          <a href="tel:+27619890426" class="social-icon" title="Call" aria-label="Call Loven">📞</a>
+          <a href="#contact" class="social-icon" title="Get in touch" aria-label="Contact">↗</a>
+        </div>
+
+        <!-- Info card -->
+        <div class="right-info-card glass" style="border-radius:18px; flex: 0 0 auto;">
+          <h4>Expert Maths Tuition</h4>
+          <p>Structured, personal sessions built around your child's actual school syllabus and upcoming assessments.</p>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="right-stats">
+          <div class="stat-mini glass" style="border-radius:14px;">
+            <div class="stat-mini-num">8–<em>12</em></div>
+            <div class="stat-mini-label">Grades covered</div>
+          </div>
+          <div class="stat-mini glass" style="border-radius:14px;">
+            <div class="stat-mini-num"><em style="font-size:20px;">CAPS</em></div>
+            <div class="stat-mini-label">Curriculum</div>
+          </div>
+          <div class="stat-mini glass" style="border-radius:14px;">
+            <div class="stat-mini-num">1-on-<em>1</em></div>
+            <div class="stat-mini-label">Sessions</div>
+          </div>
+          <div class="stat-mini glass" style="border-radius:14px;">
+            <div class="stat-mini-num"><em>KZN</em></div>
+            <div class="stat-mini-label">Based</div>
+          </div>
+        </div>
+
+        <!-- Contact quick-card -->
+        <div class="right-contact-card glass" style="border-radius:18px;">
+          <h4>Reach Loven directly</h4>
+          <div class="contact-row">
+            <div class="contact-icon-sm">📞</div>
+            <a href="tel:+27619890426">+27 61 989 0426</a>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-sm">✉</div>
+            <a href="mailto:loven@pomsun.co.za">loven@pomsun.co.za</a>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-sm">📍</div>
+            <span>KwaZulu-Natal, South Africa</span>
+          </div>
+        </div>
+
+      </div><!-- /hero-right -->
+
+    </div><!-- /hero-panels -->
+  </section>
+
+
+  <!-- ══ EQUATION TICKER ══ -->
+  <div class="eq-ticker" aria-hidden="true">
+    <div class="eq-track">
+      <span>y = mx + c</span>
+      <span>a² + b² = c²</span>
+      <span>x = (−b ± √(b²−4ac)) / 2a</span>
+      <span>sin²θ + cos²θ = 1</span>
+      <span>V = πr²h</span>
+      <span>P(A∪B) = P(A) + P(B) − P(A∩B)</span>
+      <span>f'(x) = lim(h→0) [f(x+h)−f(x)] / h</span>
+      <span>A = ½bh</span>
+      <span>log(ab) = log a + log b</span>
+      <span>Tn = a + (n−1)d</span>
+      <!-- duplicate for seamless loop -->
+      <span>y = mx + c</span>
+      <span>a² + b² = c²</span>
+      <span>x = (−b ± √(b²−4ac)) / 2a</span>
+      <span>sin²θ + cos²θ = 1</span>
+      <span>V = πr²h</span>
+      <span>P(A∪B) = P(A) + P(B) − P(A∩B)</span>
+      <span>f'(x) = lim(h→0) [f(x+h)−f(x)] / h</span>
+      <span>A = ½bh</span>
+      <span>log(ab) = log a + log b</span>
+      <span>Tn = a + (n−1)d</span>
+    </div>
+  </div>
+
+
+  <!-- ══ GRADES ══ -->
+  <section id="grades" class="section-pad section-border">
+    <div class="container">
+
+      <div class="section-intro reveal">
+        <div>
+          <span class="section-label">// what we cover</span>
+          <h2 class="section-heading">
+            Five grades.<br/><em>One clear path</em> forward.
+          </h2>
+        </div>
+        <p class="section-sub">
+          Every grade has a defined set of topics in the CAPS curriculum. We work through all of them — systematically, with depth, ensuring no gap is left behind before moving forward.
+        </p>
+      </div>
+
+      <div class="grades-grid">
+
+        <!-- Grade 8 -->
+        <div class="grade-card reveal">
+          <span class="grade-tag">Grade 08</span>
+          <div class="grade-title">The Foundation Year</div>
+          <ul class="topic-list" aria-label="Grade 8 topics">
+            <li>Whole numbers, integers &amp; rational numbers</li>
+            <li>Exponents and roots</li>
+            <li>Patterns, functions &amp; relationships</li>
+            <li>Algebraic expressions &amp; equations</li>
+            <li>Geometry of straight lines &amp; triangles</li>
+            <li>Geometric figures &amp; constructions</li>
+            <li>Perimeter, area &amp; volume</li>
+            <li>Introduction to the Theorem of Pythagoras</li>
+            <li>Statistics &amp; probability fundamentals</li>
+          </ul>
+        </div>
+
+        <!-- Grade 9 -->
+        <div class="grade-card reveal reveal-delay-1">
+          <span class="grade-tag">Grade 09</span>
+          <div class="grade-title">Building Algebra</div>
+          <ul class="topic-list" aria-label="Grade 9 topics">
+            <li>Numbers, operations &amp; relationships</li>
+            <li>Algebraic expressions — products &amp; factorisation</li>
+            <li>Algebraic equations &amp; inequalities</li>
+            <li>Linear functions &amp; graphs</li>
+            <li>Euclidean geometry of 2D shapes</li>
+            <li>Theorem of Pythagoras (application)</li>
+            <li>Trigonometry (first exposure)</li>
+            <li>Surface area &amp; volume of 3D objects</li>
+            <li>Data handling &amp; probability</li>
+          </ul>
+        </div>
+
+        <!-- Grade 10 -->
+        <div class="grade-card reveal reveal-delay-2">
+          <span class="grade-tag">Grade 10</span>
+          <div class="grade-title">FET Phase Begins</div>
+          <ul class="topic-list" aria-label="Grade 10 topics">
+            <li>Algebraic expressions, equations &amp; inequalities</li>
+            <li>Number patterns, sequences &amp; series</li>
+            <li>Functions: parabola, hyperbola, exponential</li>
+            <li>Finance, growth &amp; decay</li>
+            <li>Trigonometry — definitions, special angles, graphs</li>
+            <li>Analytical geometry (coordinate geometry)</li>
+            <li>Euclidean geometry — proofs &amp; circle theorems</li>
+            <li>Measurement: surface area &amp; volume</li>
+            <li>Statistics &amp; probability</li>
+          </ul>
+        </div>
+
+        <!-- Grade 11 -->
+        <div class="grade-card reveal reveal-delay-1">
+          <span class="grade-tag">Grade 11</span>
+          <div class="grade-title">Depth &amp; Rigour</div>
+          <ul class="topic-list" aria-label="Grade 11 topics">
+            <li>Exponents &amp; surds</li>
+            <li>Quadratic, simultaneous &amp; literal equations</li>
+            <li>Number patterns</li>
+            <li>Advanced functions &amp; transformations</li>
+            <li>Finance: compound interest, annuities &amp; loans</li>
+            <li>Trigonometry — reduction, compound &amp; double angles</li>
+            <li>Euclidean geometry — circle theorems (proofs)</li>
+            <li>Analytical geometry — lines &amp; circles</li>
+            <li>Statistics: regression &amp; correlation</li>
+            <li>Counting principles &amp; probability</li>
+          </ul>
+        </div>
+
+        <!-- Grade 12 -->
+        <div class="grade-card featured reveal reveal-delay-2">
+          <span class="grade-tag">Grade 12</span>
+          <div class="grade-title">Matric — <em style="color:var(--gold2);">The Final Push</em></div>
+          <ul class="topic-list" aria-label="Grade 12 topics">
+            <li>Patterns, sequences &amp; series (arithmetic &amp; geometric)</li>
+            <li>Functions — all types, inverses &amp; logarithms</li>
+            <li>Finance, growth &amp; decay (advanced)</li>
+            <li>Calculus — limits, differentiation &amp; applications</li>
+            <li>Analytical geometry — conic sections</li>
+            <li>Trigonometry — problem solving &amp; proofs</li>
+            <li>Euclidean geometry — full circle theorem proofs</li>
+            <li>Statistics — regression &amp; probability</li>
+            <li>Counting principles (permutations &amp; combinations)</li>
+            <li>Past paper exam strategy &amp; structured revision</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ HOW IT WORKS ══ -->
+  <section id="how" class="section-pad section-border">
+    <div class="container">
+      <span class="section-label reveal">// the process</span>
+      <h2 class="section-heading reveal">
+        How tuition <em>actually works</em> here.
+      </h2>
+
+      <div class="steps-wrap reveal">
+        <div class="step">
+          <span class="step-num">01 ——</span>
+          <div class="step-icon" aria-hidden="true">📋</div>
+          <h3>Diagnostic Assessment</h3>
+          <p>We start by identifying exactly where the learner stands — which concepts are solid, and precisely where the gaps are. No assumptions made.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02 ——</span>
+          <div class="step-icon" aria-hidden="true">🗺️</div>
+          <h3>Personalised Plan</h3>
+          <p>A clear session plan is drawn up, aligned to the CAPS term schedule and the learner's school programme — prioritising the most impactful topics first.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03 ——</span>
+          <div class="step-icon" aria-hidden="true">📐</div>
+          <h3>Concept Mastery</h3>
+          <p>Each concept is explained from the ground up — the why before the how. Worked examples, visual reasoning, and guided practice build real understanding.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04 ——</span>
+          <div class="step-icon" aria-hidden="true">📊</div>
+          <h3>Exam Readiness</h3>
+          <p>Past papers, mark scheme analysis, and timed practice build the confidence and technique needed to perform at full potential in every assessment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ CURRICULUM ══ -->
+  <section id="curriculum" class="section-pad section-border">
+    <div class="container">
+      <span class="section-label">// curriculum &amp; approach</span>
+      <h2 class="section-heading reveal">
+        What the <em>curriculum</em> demands —<br/>and how we deliver it.
+      </h2>
+
+      <div class="curriculum-grid">
+
+        <div class="curriculum-col reveal">
+          <span class="caps-tag">CAPS · DBE Aligned</span>
+          <h3>What the curriculum requires</h3>
+          <ul class="check-list">
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Full CAPS coverage for Grades 8–12, as prescribed by the DBE
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Alignment with formal assessment — class tests, assignments, and NSC exams
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Two papers per grade at FET level: Paper 1 (algebra, finance, functions) and Paper 2 (geometry, trigonometry, statistics)
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              All four cognitive levels: knowledge, routine procedures, complex procedures, and problem solving
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Formal and informal assessment tasks as prescribed per school term
+            </li>
+          </ul>
+        </div>
+
+        <div class="curriculum-col reveal reveal-delay-2">
+          <span class="caps-tag">Teaching Philosophy</span>
+          <h3>What gets taught here</h3>
+          <ul class="check-list">
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Deep conceptual understanding built before procedural shortcuts are introduced
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Every topic explained with worked examples, visual reasoning, and step-by-step logic
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Real exam question practice — structured exactly as the DBE formats them
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Common error identification: we break bad habits before they cost marks
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Calculator skills, neat working, and correct method presentation
+            </li>
+            <li>
+              <span class="check-mark" aria-hidden="true">✓</span>
+              Structured revision and consolidation before every major test or exam
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ TUTOR ══ -->
+  <section id="tutor" class="section-pad section-border">
+    <div class="container">
+      <span class="section-label" style="text-align:center;display:block;">// your tutor</span>
+      <h2 class="section-heading reveal" style="text-align:center; margin-bottom: 0;">
+        Meet <em>Loven Moodley</em>
+      </h2>
+
+      <div class="tutor-card reveal">
+        <div class="tutor-left">
+          <div class="tutor-avatar" aria-hidden="true">LM</div>
+          <div class="tutor-name">Loven Moodley</div>
+          <div class="tutor-role">Mathematics Tutor · Grades 8–12</div>
+        </div>
+
+        <div class="tutor-right">
+          <p class="tutor-bio">
+            With a dedicated focus on the <strong>South African CAPS curriculum</strong>, Loven brings clarity, patience, and rigorous structure to every session. The goal is straightforward: every learner should leave with <strong>genuine understanding</strong> — not just procedures to memorise, but the confidence to tackle unseen problems independently.
+          </p>
+          <p class="tutor-bio">
+            Sessions are built around <strong>each learner's specific needs</strong> — their school's scope and sequence, upcoming assessments, and the exact concepts they're finding difficult. Maths is learnable. Every learner can improve.
+          </p>
+
+          <div class="contact-stack">
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <a href="tel:+27619890426" data-copy="+27619890426">+27 61 989 0426</a>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">✉</div>
+              <a href="mailto:loven@pomsun.co.za" data-copy="loven@pomsun.co.za">loven@pomsun.co.za</a>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon" aria-hidden="true">📍</div>
+              <span>KwaZulu-Natal, South Africa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ CTA ══ -->
+  <section id="contact" class="section-pad section-border">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-glyph" aria-hidden="true">∑</div>
+        <h2>
+          Ready to <em>unlock</em><br/>your full potential?
+        </h2>
+        <p class="cta-sub">
+          Reach out directly to book your first session or ask any questions.<br/>
+          Serving Grade 8 to 12 learners across KwaZulu-Natal.
+        </p>
+        <div class="cta-actions">
+          <a href="tel:+27619890426" class="btn-primary">📞 Call Loven</a>
+          <a href="mailto:loven@pomsun.co.za" class="btn-ghost">✉ Send an Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <span class="footer-copy">© 2026 Maths Xplained — Loven Moodley. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="mailto:loven@pomsun.co.za">Contact</a>
+      <a href="tel:+27619890426">+27 61 989 0426</a>
+    </div>
+  </footer>
+
+
+  <script src="main.js"></script>
+</body>
+</html>
