@@ -7,20 +7,19 @@
   <meta name="description" content="Expert maths tuition for Grade 8–12 learners in KwaZulu-Natal. CAPS aligned. Personal sessions with Loven Moodley." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Mobile nav open/close styles injected here so JS can toggle -->
   <style>
     #nav-links-list.mobile-open {
       display: flex !important;
       flex-direction: column;
       position: absolute;
-      top: 66px; left: 0; right: 0;
-      background: rgba(7,9,15,0.97);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      top: 72px; left: 0; right: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       padding: 16px 5% 24px;
       gap: 4px;
       z-index: 300;
@@ -41,7 +40,7 @@
       <li><a href="#how">How It Works</a></li>
       <li><a href="#curriculum">Curriculum</a></li>
       <li><a href="#tutor">Your Tutor</a></li>
-      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started <span class="nav-cta-arrow">↗</span></a></li>
     </ul>
 
     <button
@@ -61,143 +60,117 @@
   <!-- ══ HERO ══ -->
   <section id="hero" aria-label="Hero">
 
-    <!-- Video background -->
-    <div class="hero-video-wrap" aria-hidden="true">
-      <video
-        id="hero-video"
-        autoplay loop muted playsinline
-        poster=""
-        aria-hidden="true"
-      >
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260315_073750_51473149-4350-4920-ae24-c8214286f323.mp4" type="video/mp4" />
-      </video>
+    <!-- Canvas background -->
+    <div class="hero-canvas-wrap" aria-hidden="true">
+      <canvas id="maths-canvas"></canvas>
     </div>
 
+    <!-- Dark overlay -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Bottom gradient fade -->
+    <div class="hero-fade-bottom" aria-hidden="true"></div>
+
     <!-- Floating glyphs -->
-    <span class="math-float" style="top:22%;left:3%;font-size:30px;animation-delay:0s;"   aria-hidden="true">∫</span>
-    <span class="math-float" style="top:14%;right:4%;font-size:20px;animation-delay:2.2s;" aria-hidden="true">π</span>
-    <span class="math-float" style="top:60%;left:2%;font-size:22px;animation-delay:4s;"   aria-hidden="true">Σ</span>
-    <span class="math-float" style="top:72%;right:3%;font-size:26px;animation-delay:1.4s;" aria-hidden="true">√</span>
-    <span class="math-float" style="top:38%;right:1.5%;font-size:15px;animation-delay:3s;" aria-hidden="true">x²</span>
-    <span class="math-float" style="top:82%;left:6%;font-size:18px;animation-delay:5s;"   aria-hidden="true">∞</span>
+    <span class="math-float" style="top:18%;left:4%;font-size:32px;animation-delay:0s;" aria-hidden="true">∫</span>
+    <span class="math-float" style="top:12%;right:5%;font-size:22px;animation-delay:2.2s;" aria-hidden="true">π</span>
+    <span class="math-float" style="top:62%;left:2.5%;font-size:24px;animation-delay:4s;" aria-hidden="true">Σ</span>
+    <span class="math-float" style="top:74%;right:4%;font-size:28px;animation-delay:1.4s;" aria-hidden="true">√</span>
+    <span class="math-float" style="top:40%;right:2%;font-size:16px;animation-delay:3s;" aria-hidden="true">x²</span>
+    <span class="math-float" style="top:84%;left:7%;font-size:19px;animation-delay:5s;" aria-hidden="true">∞</span>
 
-    <!-- Two-panel layout -->
-    <div class="hero-panels">
+    <!-- Hero content -->
+    <div class="hero-content">
 
-      <!-- LEFT PANEL -->
-      <div class="hero-left glass-strong" style="border-radius:28px;">
+      <!-- Badge pill -->
+      <div class="hero-badge liquid-glass" data-animate="badge">
+        <span class="badge-new">CAPS</span>
+        <span class="badge-text">Aligned tuition for KwaZulu-Natal learners</span>
+      </div>
 
-        <!-- Brand row -->
-        <div class="hero-nav">
-          <div class="hero-brand">
-            <div class="hero-brand-mark" aria-hidden="true">∑</div>
-            Maths<em style="color:inherit;font-style:italic;">Xplained</em>
-          </div>
-          <div class="hero-menu-btn glass" style="border-radius:50px;">
-            Grades 8–12
-          </div>
+      <!-- Main heading -->
+      <h1 class="hero-h1" data-animate="heading">
+        Maths that <em>finally</em><br/>makes sense.
+      </h1>
+
+      <!-- Subtext -->
+      <p class="hero-sub" data-animate="sub">
+        One-on-one tuition for Grade 8 to 12 learners. Build genuine understanding — the kind that holds up in exams and beyond. Personal sessions with Loven Moodley across KwaZulu-Natal.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="hero-actions" data-animate="cta">
+        <a href="#contact" class="btn-glass-strong">
+          Start Learning Today <span>↗</span>
+        </a>
+        <a href="#grades" class="btn-text-only">
+          <span class="play-icon">▶</span> Explore Grades
+        </a>
+      </div>
+
+      <!-- Partners / Trust bar -->
+      <div class="hero-trust" data-animate="trust">
+        <div class="trust-pill liquid-glass">
+          <span class="trust-dot" aria-hidden="true"></span>
+          Trusted across KwaZulu-Natal
         </div>
-
-        <!-- Hero copy -->
-        <div class="hero-center">
-          <div class="hero-eyebrow">
-            <span class="eyebrow-dot" aria-hidden="true"></span>
-            <span class="eyebrow-text">CAPS Aligned · KwaZulu-Natal</span>
-          </div>
-
-          <h1 class="hero-h1">
-            Maths that<br/>
-            <em>finally</em><br/>
-            <span class="h1-gold">makes sense.</span>
-          </h1>
-
-          <p class="hero-sub">
-            One-on-one tuition for Grade 8 to 12 learners. Build genuine understanding — the kind that holds up in exams and beyond.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contact" class="btn-primary">Start Learning Today</a>
-            <a href="#grades" class="btn-ghost">Explore Grades →</a>
-          </div>
-
-          <div class="tag-pills">
-            <span class="tag-pill glass" style="border-radius:50px;">Grade 8–12</span>
-            <span class="tag-pill glass" style="border-radius:50px;">CAPS Curriculum</span>
-            <span class="tag-pill glass" style="border-radius:50px;">1-on-1 Sessions</span>
-          </div>
+        <div class="trust-names">
+          <span>Grade 8</span>
+          <span>Grade 9</span>
+          <span>Grade 10</span>
+          <span>Grade 11</span>
+          <span>Grade 12</span>
         </div>
+      </div>
 
-        <!-- Bottom quote -->
-        <div class="hero-quote">
-          <div class="quote-label">Teaching Philosophy</div>
-          <p class="quote-text">
-            "Every learner can improve with the right guidance — no exceptions."
-          </p>
-          <div class="quote-author">
-            <span class="quote-line" aria-hidden="true"></span>
-            Loven Moodley
-            <span class="quote-line" aria-hidden="true"></span>
-          </div>
+    </div>
+
+    <!-- Right panel: glass info cards -->
+    <div class="hero-cards" data-animate="cards">
+
+      <div class="hcard liquid-glass hcard--info">
+        <div class="hcard-label">Teaching Philosophy</div>
+        <p class="hcard-quote">"Every learner can improve with the right guidance — no exceptions."</p>
+        <div class="hcard-author">— Loven Moodley</div>
+      </div>
+
+      <div class="hcard-stats">
+        <div class="hcard liquid-glass hcard--stat">
+          <div class="stat-val">8–<em>12</em></div>
+          <div class="stat-label">Grades covered</div>
         </div>
-
-      </div><!-- /hero-left -->
-
-      <!-- RIGHT PANEL (desktop) -->
-      <div class="hero-right" aria-hidden="true">
-
-        <!-- Topbar -->
-        <div class="right-topbar glass" style="border-radius:18px;">
-          <a href="mailto:loven@pomsun.co.za" class="social-icon" title="Email" aria-label="Email Loven">✉</a>
-          <a href="tel:+27619890426" class="social-icon" title="Call" aria-label="Call Loven">📞</a>
-          <a href="#contact" class="social-icon" title="Get in touch" aria-label="Contact">↗</a>
+        <div class="hcard liquid-glass hcard--stat">
+          <div class="stat-val"><em>CAPS</em></div>
+          <div class="stat-label">Curriculum</div>
         </div>
-
-        <!-- Info card -->
-        <div class="right-info-card glass" style="border-radius:18px; flex: 0 0 auto;">
-          <h4>Expert Maths Tuition</h4>
-          <p>Structured, personal sessions built around your child's actual school syllabus and upcoming assessments.</p>
+        <div class="hcard liquid-glass hcard--stat">
+          <div class="stat-val">1-on-<em>1</em></div>
+          <div class="stat-label">Sessions</div>
         </div>
-
-        <!-- Stat cards -->
-        <div class="right-stats">
-          <div class="stat-mini glass" style="border-radius:14px;">
-            <div class="stat-mini-num">8–<em>12</em></div>
-            <div class="stat-mini-label">Grades covered</div>
-          </div>
-          <div class="stat-mini glass" style="border-radius:14px;">
-            <div class="stat-mini-num"><em style="font-size:20px;">CAPS</em></div>
-            <div class="stat-mini-label">Curriculum</div>
-          </div>
-          <div class="stat-mini glass" style="border-radius:14px;">
-            <div class="stat-mini-num">1-on-<em>1</em></div>
-            <div class="stat-mini-label">Sessions</div>
-          </div>
-          <div class="stat-mini glass" style="border-radius:14px;">
-            <div class="stat-mini-num"><em>KZN</em></div>
-            <div class="stat-mini-label">Based</div>
-          </div>
+        <div class="hcard liquid-glass hcard--stat">
+          <div class="stat-val"><em>KZN</em></div>
+          <div class="stat-label">Based</div>
         </div>
+      </div>
 
-        <!-- Contact quick-card -->
-        <div class="right-contact-card glass" style="border-radius:18px;">
-          <h4>Reach Loven directly</h4>
-          <div class="contact-row">
-            <div class="contact-icon-sm">📞</div>
-            <a href="tel:+27619890426">+27 61 989 0426</a>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon-sm">✉</div>
-            <a href="mailto:loven@pomsun.co.za">loven@pomsun.co.za</a>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon-sm">📍</div>
-            <span>KwaZulu-Natal, South Africa</span>
-          </div>
+      <div class="hcard liquid-glass hcard--contact">
+        <div class="hcard-label">Reach Loven directly</div>
+        <div class="contact-row">
+          <span class="contact-ic">📞</span>
+          <a href="tel:+27619890426">+27 61 989 0426</a>
         </div>
+        <div class="contact-row">
+          <span class="contact-ic">✉</span>
+          <a href="mailto:loven@pomsun.co.za">loven@pomsun.co.za</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-ic">📍</span>
+          <span>KwaZulu-Natal, South Africa</span>
+        </div>
+      </div>
 
-      </div><!-- /hero-right -->
+    </div>
 
-    </div><!-- /hero-panels -->
   </section>
 
 
@@ -214,7 +187,6 @@
       <span>A = ½bh</span>
       <span>log(ab) = log a + log b</span>
       <span>Tn = a + (n−1)d</span>
-      <!-- duplicate for seamless loop -->
       <span>y = mx + c</span>
       <span>a² + b² = c²</span>
       <span>x = (−b ± √(b²−4ac)) / 2a</span>
@@ -247,7 +219,6 @@
 
       <div class="grades-grid">
 
-        <!-- Grade 8 -->
         <div class="grade-card reveal">
           <span class="grade-tag">Grade 08</span>
           <div class="grade-title">The Foundation Year</div>
@@ -264,7 +235,6 @@
           </ul>
         </div>
 
-        <!-- Grade 9 -->
         <div class="grade-card reveal reveal-delay-1">
           <span class="grade-tag">Grade 09</span>
           <div class="grade-title">Building Algebra</div>
@@ -281,7 +251,6 @@
           </ul>
         </div>
 
-        <!-- Grade 10 -->
         <div class="grade-card reveal reveal-delay-2">
           <span class="grade-tag">Grade 10</span>
           <div class="grade-title">FET Phase Begins</div>
@@ -298,7 +267,6 @@
           </ul>
         </div>
 
-        <!-- Grade 11 -->
         <div class="grade-card reveal reveal-delay-1">
           <span class="grade-tag">Grade 11</span>
           <div class="grade-title">Depth &amp; Rigour</div>
@@ -316,7 +284,6 @@
           </ul>
         </div>
 
-        <!-- Grade 12 -->
         <div class="grade-card featured reveal reveal-delay-2">
           <span class="grade-tag">Grade 12</span>
           <div class="grade-title">Matric — <em style="color:var(--gold2);">The Final Push</em></div>
@@ -391,26 +358,11 @@
           <span class="caps-tag">CAPS · DBE Aligned</span>
           <h3>What the curriculum requires</h3>
           <ul class="check-list">
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Full CAPS coverage for Grades 8–12, as prescribed by the DBE
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Alignment with formal assessment — class tests, assignments, and NSC exams
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Two papers per grade at FET level: Paper 1 (algebra, finance, functions) and Paper 2 (geometry, trigonometry, statistics)
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              All four cognitive levels: knowledge, routine procedures, complex procedures, and problem solving
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Formal and informal assessment tasks as prescribed per school term
-            </li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Full CAPS coverage for Grades 8–12, as prescribed by the DBE</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Alignment with formal assessment — class tests, assignments, and NSC exams</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Two papers per grade at FET level: Paper 1 and Paper 2</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>All four cognitive levels: knowledge, routine, complex, and problem solving</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Formal and informal assessment tasks as prescribed per school term</li>
           </ul>
         </div>
 
@@ -418,30 +370,12 @@
           <span class="caps-tag">Teaching Philosophy</span>
           <h3>What gets taught here</h3>
           <ul class="check-list">
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Deep conceptual understanding built before procedural shortcuts are introduced
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Every topic explained with worked examples, visual reasoning, and step-by-step logic
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Real exam question practice — structured exactly as the DBE formats them
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Common error identification: we break bad habits before they cost marks
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Calculator skills, neat working, and correct method presentation
-            </li>
-            <li>
-              <span class="check-mark" aria-hidden="true">✓</span>
-              Structured revision and consolidation before every major test or exam
-            </li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Deep conceptual understanding built before procedural shortcuts are introduced</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Every topic explained with worked examples, visual reasoning, and step-by-step logic</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Real exam question practice — structured exactly as the DBE formats them</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Common error identification: we break bad habits before they cost marks</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Calculator skills, neat working, and correct method presentation</li>
+            <li><span class="check-mark" aria-hidden="true">✓</span>Structured revision and consolidation before every major test or exam</li>
           </ul>
         </div>
 
