@@ -1,5 +1,6 @@
 /* ══════════════════════════════════════════════
    MATHS XPLAINED — main.js
+   Luxury Dark Glass Edition
    ══════════════════════════════════════════════ */
 
 'use strict';
@@ -18,8 +19,9 @@
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
+  onScroll();
 })();
+
 
 /* ── HAMBURGER MENU ── */
 (function initHamburger() {
@@ -34,7 +36,6 @@
     navLinks.classList.toggle('mobile-open', open);
     hamburger.setAttribute('aria-expanded', String(open));
 
-    // Animate the 3 bars into an X
     const bars = hamburger.querySelectorAll('span');
     if (open) {
       bars[0].style.transform = 'translateY(7px) rotate(45deg)';
@@ -47,7 +48,6 @@
     }
   });
 
-  // Close when a link is clicked
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       open = false;
@@ -61,6 +61,7 @@
   });
 })();
 
+
 /* ── INTERSECTION OBSERVER — REVEAL ANIMATIONS ── */
 (function initReveal() {
   const targets = document.querySelectorAll('.reveal');
@@ -71,7 +72,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // animate once
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -81,19 +82,21 @@
   targets.forEach(el => observer.observe(el));
 })();
 
-/* ── SMOOTH SCROLL FOR ALL IN-PAGE ANCHORS ── */
+
+/* ── SMOOTH SCROLL ── */
 (function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = document.querySelector(this.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const offset = 72; // navbar height
+      const offset = 80;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 })();
+
 
 /* ── MATHS CANVAS BACKGROUND ── */
 (function initMathsCanvas() {
@@ -101,7 +104,6 @@
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  // Maths expressions to float across the background
   const EXPRESSIONS = [
     'x² + y² = r²', 'f(x) = mx + c', '∫₀^∞ e^-x dx', 'sin²θ + cos²θ = 1',
     'E = mc²', 'lim(x→0)', 'Σ(n=1)^∞', '√(a² + b²)', 'dy/dx', 'P(A|B)',
@@ -111,10 +113,8 @@
     'tan(θ) = sin/cos', 'Sn = n/2(2a + (n-1)d)', '2πr', 'bh/2',
   ];
 
-  // Geometry shapes drawn in background
   const SHAPES = [];
   const PARTICLES = [];
-
   let W, H, animId;
 
   function resize() {
@@ -122,7 +122,6 @@
     H = canvas.height = canvas.offsetHeight;
   }
 
-  // Create floating text nodes
   function makeParticle() {
     return {
       text:  EXPRESSIONS[Math.floor(Math.random() * EXPRESSIONS.length)],
@@ -132,11 +131,10 @@
       vy:    (Math.random() - 0.5) * 0.22,
       alpha: 0.04 + Math.random() * 0.10,
       size:  10 + Math.random() * 14,
-      hue:   Math.random() < 0.7 ? 215 : 42, // blue or gold
+      hue:   Math.random() < 0.7 ? 215 : 42,
     };
   }
 
-  // Create background geometric shapes (circles, triangles, axes)
   function makeShape() {
     const types = ['circle', 'triangle', 'axes', 'parabola', 'grid'];
     return {
@@ -166,42 +164,30 @@
     ctx.translate(s.x, s.y);
     ctx.rotate(s.rot);
     ctx.globalAlpha = s.alpha;
-    ctx.strokeStyle = s.hue === 42
-      ? `hsl(42,60%,62%)`
-      : `hsl(215,80%,68%)`;
+    ctx.strokeStyle = s.hue === 42 ? `hsl(42,60%,62%)` : `hsl(215,80%,68%)`;
     ctx.lineWidth = 1;
 
     switch (s.type) {
       case 'circle':
-        ctx.beginPath();
-        ctx.arc(0, 0, s.size, 0, Math.PI * 2);
-        ctx.stroke();
-        // inner ring
-        ctx.beginPath();
-        ctx.arc(0, 0, s.size * 0.55, 0, Math.PI * 2);
-        ctx.stroke();
+        ctx.beginPath(); ctx.arc(0, 0, s.size, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(0, 0, s.size * 0.55, 0, Math.PI * 2); ctx.stroke();
         break;
-
       case 'triangle':
         ctx.beginPath();
         ctx.moveTo(0, -s.size);
         ctx.lineTo(s.size * 0.87, s.size * 0.5);
         ctx.lineTo(-s.size * 0.87, s.size * 0.5);
-        ctx.closePath();
-        ctx.stroke();
+        ctx.closePath(); ctx.stroke();
         break;
-
       case 'axes':
         ctx.beginPath();
         ctx.moveTo(-s.size, 0); ctx.lineTo(s.size, 0);
         ctx.moveTo(0, -s.size); ctx.lineTo(0, s.size);
-        // arrowheads
         ctx.moveTo(s.size, 0); ctx.lineTo(s.size - 8, -5);
         ctx.moveTo(s.size, 0); ctx.lineTo(s.size - 8,  5);
         ctx.moveTo(0, -s.size); ctx.lineTo(-5, -s.size + 8);
         ctx.moveTo(0, -s.size); ctx.lineTo( 5, -s.size + 8);
         ctx.stroke();
-        // tick marks
         for (let t = -3; t <= 3; t++) {
           if (t === 0) continue;
           const d = (s.size / 3.5) * t;
@@ -211,17 +197,14 @@
           ctx.stroke();
         }
         break;
-
       case 'parabola':
         ctx.beginPath();
         for (let px = -s.size; px <= s.size; px += 2) {
           const py = (px * px) / s.size - s.size * 0.5;
-          if (px === -s.size) ctx.moveTo(px, py);
-          else ctx.lineTo(px, py);
+          if (px === -s.size) ctx.moveTo(px, py); else ctx.lineTo(px, py);
         }
         ctx.stroke();
         break;
-
       case 'grid':
         const step = s.size / 3;
         for (let g = -s.size; g <= s.size; g += step) {
@@ -238,9 +221,7 @@
   function drawParticle(p) {
     ctx.save();
     ctx.globalAlpha = p.alpha;
-    ctx.fillStyle   = p.hue === 42
-      ? `hsl(42,70%,65%)`
-      : `hsl(215,75%,72%)`;
+    ctx.fillStyle = p.hue === 42 ? `hsl(42,70%,65%)` : `hsl(215,75%,72%)`;
     ctx.font = `${p.size}px 'DM Mono', monospace`;
     ctx.fillText(p.text, p.x, p.y);
     ctx.restore();
@@ -248,10 +229,8 @@
 
   function move(arr) {
     arr.forEach(o => {
-      o.x += o.vx;
-      o.y += o.vy;
+      o.x += o.vx; o.y += o.vy;
       if (o.rot !== undefined) o.rot += o.rotV;
-      // wrap around edges with padding
       const pad = 120;
       if (o.x < -pad) o.x = W + pad;
       if (o.x > W + pad) o.x = -pad;
@@ -263,67 +242,44 @@
   function draw() {
     ctx.clearRect(0, 0, W, H);
 
-    // Deep dark base
-    ctx.fillStyle = '#07090f';
+    // Pure black base
+    ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, W, H);
 
-    // Subtle radial glow centre-left
-    const grd = ctx.createRadialGradient(W * 0.3, H * 0.45, 0, W * 0.3, H * 0.45, W * 0.55);
-    grd.addColorStop(0, 'rgba(91,156,246,0.07)');
+    // Blue radial glow — centre left
+    const grd = ctx.createRadialGradient(W * 0.25, H * 0.42, 0, W * 0.25, H * 0.42, W * 0.55);
+    grd.addColorStop(0, 'rgba(91,156,246,0.08)');
     grd.addColorStop(1, 'transparent');
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
 
-    // Bottom-right warm glow
-    const grd2 = ctx.createRadialGradient(W * 0.8, H * 0.8, 0, W * 0.8, H * 0.8, W * 0.4);
-    grd2.addColorStop(0, 'rgba(200,161,74,0.05)');
+    // Gold bottom-right warmth
+    const grd2 = ctx.createRadialGradient(W * 0.82, H * 0.82, 0, W * 0.82, H * 0.82, W * 0.4);
+    grd2.addColorStop(0, 'rgba(200,161,74,0.04)');
     grd2.addColorStop(1, 'transparent');
-    ctx.fillStyle = grd2;
-    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = grd2; ctx.fillRect(0, 0, W, H);
 
     SHAPES.forEach(drawShape);
     PARTICLES.forEach(drawParticle);
 
-    move(SHAPES);
-    move(PARTICLES);
-
+    move(SHAPES); move(PARTICLES);
     animId = requestAnimationFrame(draw);
   }
 
-  // Boot
-  init();
-  draw();
+  init(); draw();
 
-  // Resize handler
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      cancelAnimationFrame(animId);
-      init();
-      draw();
-    }, 200);
+    resizeTimer = setTimeout(() => { cancelAnimationFrame(animId); init(); draw(); }, 200);
   });
 
-  // Pause when tab hidden
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      cancelAnimationFrame(animId);
-    } else {
-      draw();
-    }
+    if (document.hidden) cancelAnimationFrame(animId); else draw();
   });
 })();
 
-/* ── GRADE CARD STAGGER ── */
-(function initGradeStagger() {
-  const cards = document.querySelectorAll('.grade-card');
-  cards.forEach((card, i) => {
-    card.style.transitionDelay = `${i * 0.06}s`;
-  });
-})();
 
-/* ── FLOATING MATH SYMBOLS — dynamic parallax ── */
+/* ── FLOATING MATH GLYPH PARALLAX ── */
 (function initMathParallax() {
   const floats = document.querySelectorAll('.math-float');
   if (!floats.length) return;
@@ -333,7 +289,6 @@
     const cy = window.innerHeight / 2;
     const dx = (e.clientX - cx) / cx;
     const dy = (e.clientY - cy) / cy;
-
     floats.forEach((el, i) => {
       const depth = (i % 3 + 1) * 6;
       el.style.transform = `translate(${dx * depth}px, ${dy * depth}px)`;
@@ -341,45 +296,42 @@
   }, { passive: true });
 })();
 
+
 /* ── TICKER PAUSE ON HOVER ── */
 (function initTickerHover() {
   const track = document.querySelector('.eq-track');
   if (!track) return;
-
-  track.addEventListener('mouseenter', () => {
-    track.style.animationPlayState = 'paused';
-  });
-  track.addEventListener('mouseleave', () => {
-    track.style.animationPlayState = 'running';
-  });
+  track.addEventListener('mouseenter', () => { track.style.animationPlayState = 'paused'; });
+  track.addEventListener('mouseleave', () => { track.style.animationPlayState = 'running'; });
 })();
+
+
+/* ── GRADE CARD STAGGER ── */
+(function initGradeStagger() {
+  const cards = document.querySelectorAll('.grade-card');
+  cards.forEach((card, i) => { card.style.transitionDelay = `${i * 0.06}s`; });
+})();
+
 
 /* ── CONTACT COPY TO CLIPBOARD ── */
 (function initContactCopy() {
   document.querySelectorAll('[data-copy]').forEach(el => {
     el.style.cursor = 'pointer';
     el.title = 'Click to copy';
-
     el.addEventListener('click', (e) => {
       e.preventDefault();
       const text = el.getAttribute('data-copy');
       if (!text) return;
-
       navigator.clipboard.writeText(text).then(() => {
         const original = el.textContent;
         el.textContent = 'Copied!';
-        el.style.color = 'var(--accent2)';
-        setTimeout(() => {
-          el.textContent = original;
-          el.style.color = '';
-        }, 1800);
+        el.style.color = '#93bfff';
+        setTimeout(() => { el.textContent = original; el.style.color = ''; }, 1800);
       }).catch(() => {
-        // Fallback for older browsers
         const ta = document.createElement('textarea');
         ta.value = text;
         ta.style.cssText = 'position:fixed;opacity:0';
-        document.body.appendChild(ta);
-        ta.select();
+        document.body.appendChild(ta); ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
       });
